@@ -53,7 +53,7 @@
               <div
                 class="cover"
                 v-for="(film,i) in films"
-                @click="index = i">
+                @click="indexFilm = i">
                 <img :src= "(film.poster_path == null) ? './Assets/img/comingSoon.jpg' : `https://image.tmdb.org/t/p/w342/${film.poster_path}`" alt="">
               </div>
             </div>
@@ -82,29 +82,52 @@
           <div class="film-info">
             <img
               class="cover-info"
-              :src= "(films[index].poster_path == null) ? './Assets/img/comingSoon.jpg' : `https://image.tmdb.org/t/p/w342/${films[index].poster_path}`"
+              :src= "(films[indexFilm].poster_path == null) ? './Assets/img/comingSoon.jpg' : `https://image.tmdb.org/t/p/w342/${films[indexFilm].poster_path}`"
               v-if="films.length">
             <ul v-if="films.length">
-              <li>Titolo: <span>{{ films[index].title }}</span> </li>
-              <li>Titolo Originale: <span>{{ films[index].original_title }}</span> </li>
+              <li>Titolo: <span>{{ films[indexFilm].title }}</span> </li>
+              <li>Titolo Originale: <span>{{ films[indexFilm].original_title }}</span> </li>
               <li>Lingua:
                 <img
                 class="flag"
-                v-if="films[index].original_language == 'en'"
+                v-if="films[indexFilm].original_language == 'en'"
                 :src="`https://www.countryflags.io/us/${ style }/${ size }`">
                 <img
                 class="flag"
                 v-else
-                :src="`https://www.countryflags.io/${ films[index].original_language }/${ style }/${ size }`">
+                :src="`https://www.countryflags.io/${ films[indexFilm].original_language }/${ style }/${ size }`">
               </li>
-              <li>Voto: <span>{{ films[index].vote_average }}</span> </li>
-              <li>Descrizione: <span>{{ films[index].overview }}</span> </li>
+              <li>Voto: <span>{{ films[indexFilm].vote_average }}</span> </li>
+              <li>Descrizione: <span>{{ films[indexFilm].overview }}</span> </li>
             </ul>
           </div>
         </div>
         <div class="info-container">
           <div class="serieTv-info">
-
+            <img
+              class="cover-info"
+              :src= "(seriesTv[indexSerieTV].poster_path == null) ? './Assets/img/comingSoon.jpg' : `https://image.tmdb.org/t/p/w342/${seriesTv[indexSerieTV].poster_path}`"
+              v-if="seriesTv.length">
+            <ul v-if="seriesTv.length">
+              <li>Titolo: <span>{{ seriesTv[indexSerieTV].title }}</span> </li>
+              <li>Titolo Originale: <span>{{ seriesTv[indexSerieTV].original_title }}</span> </li>
+              <li>Lingua:
+                <img
+                class="flag"
+                v-if="seriesTv[indexSerieTV].original_language == 'en'"
+                :src="`https://www.countryflags.io/us/${ style }/${ size }`">
+                <img
+                class="flag"
+                v-else-if="seriesTv[indexSerieTV].original_language == 'ja'"
+                :src="`https://www.countryflags.io/jp/${ style }/${ size }`">
+                <img
+                class="flag"
+                v-else
+                :src="`https://www.countryflags.io/${ seriesTv[indexSerieTV].original_language }/${ style }/${ size }`">
+              </li>
+              <li>Voto: <span>{{ seriesTv[indexSerieTV].vote_average }}</span> </li>
+              <li>Descrizione: <span>{{ seriesTv[indexSerieTV].overview }}</span> </li>
+            </ul>
           </div>
         </div>
         <div class="serieTv-background">
@@ -134,7 +157,7 @@
               <div
                 class="cover"
                 v-for="(serieTv,i) in seriesTv"
-                @click="index = i">
+                @click="indexSerieTV = i">
                 <img :src= "(serieTv.poster_path == null) ? './Assets/img/comingSoon.jpg' : `https://image.tmdb.org/t/p/w342/${serieTv.poster_path}`">
               </div>
             </div>

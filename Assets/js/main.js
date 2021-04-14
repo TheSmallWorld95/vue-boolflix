@@ -7,7 +7,8 @@ var app = new Vue (
     data:{
       films: [],
       seriesTv: [],
-      index: 0,
+      indexFilm: 0,
+      indexSerieTV: 0,
       title: "",
       api_key: 'ab347fdc17957f58c78a8c947dddb53d',
       site: 'https://api.themoviedb.org/3',
