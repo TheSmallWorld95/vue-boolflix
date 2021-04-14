@@ -144,13 +144,14 @@ div.dot {
   justify-content: center;
   align-items: center;
   padding-bottom: 20px;
+  overflow: hidden;
+
 }
 
 div.dot i {
   color: #FFF;
   font-size: 14px;
   padding-top: 19px;
-
 }
 
 div.container div.film-background div.cover-container,

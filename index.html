@@ -64,6 +64,10 @@
                 :src="`https://www.countryflags.io/us/${ style }/${ size }`">
                 <img
                 class="flag"
+                v-else-if="films[indexFilm].original_language == 'ja'"
+                :src="`https://www.countryflags.io/jp/${ style }/${ size }`">
+                <img
+                class="flag"
                 v-else
                 :src="`https://www.countryflags.io/${ films[indexFilm].original_language }/${ style }/${ size }`">
               </li>
