@@ -32,22 +32,7 @@
           </div>
           <div class="film-container">
             <div class="dot">
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle" v-for="dot in 16"></i>
             </div>
             <div class="cover-container">
               <div
@@ -58,22 +43,7 @@
               </div>
             </div>
             <div class="dot">
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle" v-for="dot in 16"></i>
             </div>
 
           </div>
@@ -97,7 +67,18 @@
                 v-else
                 :src="`https://www.countryflags.io/${ films[indexFilm].original_language }/${ style }/${ size }`">
               </li>
-              <li>Voto: <span>{{ films[indexFilm].vote_average }}</span> </li>
+              <li>Voto:
+                <span>
+                  <i
+                    class="fas fa-star golden"
+                    v-for="star in getStars(films[indexFilm].vote_average)">
+                  </i>
+                  <i
+                    class="fas fa-star"
+                    v-for="star in (voteStar - getStars(films[indexFilm].vote_average))">
+                  </i>
+                </span>
+              </li>
               <li>Descrizione: <span>{{ films[indexFilm].overview }}</span> </li>
             </ul>
           </div>
@@ -109,8 +90,8 @@
               :src= "(seriesTv[indexSerieTV].poster_path == null) ? './Assets/img/comingSoon.jpg' : `https://image.tmdb.org/t/p/w342/${seriesTv[indexSerieTV].poster_path}`"
               v-if="seriesTv.length">
             <ul v-if="seriesTv.length">
-              <li>Titolo: <span>{{ seriesTv[indexSerieTV].title }}</span> </li>
-              <li>Titolo Originale: <span>{{ seriesTv[indexSerieTV].original_title }}</span> </li>
+              <li>Titolo: <span>{{ seriesTv[indexSerieTV].name }}</span> </li>
+              <li>Titolo Originale: <span>{{ seriesTv[indexSerieTV].original_name }}</span> </li>
               <li>Lingua:
                 <img
                 class="flag"
@@ -125,7 +106,18 @@
                 v-else
                 :src="`https://www.countryflags.io/${ seriesTv[indexSerieTV].original_language }/${ style }/${ size }`">
               </li>
-              <li>Voto: <span>{{ seriesTv[indexSerieTV].vote_average }}</span> </li>
+              <li>Voto:
+                <span>
+                  <i
+                    class="fas fa-star golden"
+                    v-for="star in getStars(seriesTv[indexSerieTV].vote_average)">
+                  </i>
+                  <i
+                    class="fas fa-star"
+                    v-for="star in (voteStar - getStars(seriesTv[indexSerieTV].vote_average))">
+                  </i>
+                </span>
+              </li>
               <li>Descrizione: <span>{{ seriesTv[indexSerieTV].overview }}</span> </li>
             </ul>
           </div>
@@ -136,22 +128,7 @@
           </div>
           <div class="serieTv-container">
             <div class="dot">
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle" v-for="dot in 16"></i>
             </div>
             <div class="cover-container">
               <div
@@ -162,22 +139,7 @@
               </div>
             </div>
             <div class="dot">
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle" v-for="dot in 16"></i>
             </div>
 
           </div>

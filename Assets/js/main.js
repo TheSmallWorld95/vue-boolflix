@@ -14,10 +14,18 @@ var app = new Vue (
       site: 'https://api.themoviedb.org/3',
       language: 'it-IT',
       style: 'shiny',
-      size: '64.png'
+      size: '64.png',
+      voteStar: 5,
     },
     mounted() {
-
+      axios.get(`${this.site}/search/movie?api_key=${this.api_key}&query=''&language=${this.language}`)
+      .then((response) => {
+        this.films = response.data.results;
+      });
+      axios.get(`${this.site}/search/tv?api_key=${this.api_key}&query=''&language=${this.language}`)
+      .then((response) => {
+        this.seriesTv = response.data.results;
+      });
     },
     methods: {
       search: function () {
@@ -29,6 +37,9 @@ var app = new Vue (
         .then((response) => {
           this.seriesTv = response.data.results;
         });
+      },
+      getStars: function (vote) {
+        return Math.ceil(vote / 2)
       }
     }
   }
