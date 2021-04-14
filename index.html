@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./Assets/css/master.css">
+</head>
+<body>
+  <div id="root">
+    <div class="container-border">
+      <div class="navbar">
+        <h1>Boolflix</h1>
+        <div class="search">
+          <a href="#"> <i></i> </a>
+          <input
+            type="text"
+            placeholder="Insert Title"
+            v-model="title">
+          <button
+            type="button"
+            name="button"
+            @click="search">Search</button>
+        </div>
+      </div>
+      <div class="container">
+        <div class="film-background">
+          <div class="title">
+            <h3>Film</h3>
+          </div>
+          <div class="film-container">
+            <div class="dot">
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+            </div>
+            <div class="cover-container">
+              <div
+                class="cover"
+                v-for="(film,i) in films"
+                @click="index = i">
+                <img :src= "(film.poster_path == null) ? './Assets/img/comingSoon.jpg' : `https://image.tmdb.org/t/p/w342/${film.poster_path}`" alt="">
+              </div>
+            </div>
+            <div class="dot">
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+            </div>
+
+          </div>
+        </div>
+        <div class="info-container">
+          <div class="film-info">
+            <img
+              class="cover-info"
+              :src= "(films[index].poster_path == null) ? './Assets/img/comingSoon.jpg' : `https://image.tmdb.org/t/p/w342/${films[index].poster_path}`"
+              v-if="films.length">
+            <ul v-if="films.length">
+              <li>Titolo: <span>{{ films[index].title }}</span> </li>
+              <li>Titolo Originale: <span>{{ films[index].original_title }}</span> </li>
+              <li>Lingua:
+                <img
+                class="flag"
+                v-if="films[index].original_language == 'en'"
+                :src="`https://www.countryflags.io/us/${ style }/${ size }`">
+                <img
+                class="flag"
+                v-else
+                :src="`https://www.countryflags.io/${ films[index].original_language }/${ style }/${ size }`">
+              </li>
+              <li>Voto: <span>{{ films[index].vote_average }}</span> </li>
+              <li>Descrizione: <span>{{ films[index].overview }}</span> </li>
+            </ul>
+          </div>
+        </div>
+        <div class="info-container">
+          <div class="serieTv-info">
+
+          </div>
+        </div>
+        <div class="serieTv-background">
+          <div class="title">
+            <h3>Serie TV</h3>
+          </div>
+          <div class="serieTv-container">
+            <div class="dot">
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+            </div>
+            <div class="cover-container">
+              <div
+                class="cover"
+                v-for="(serieTv,i) in seriesTv"
+                @click="index = i">
+                <img :src= "(serieTv.poster_path == null) ? './Assets/img/comingSoon.jpg' : `https://image.tmdb.org/t/p/w342/${serieTv.poster_path}`">
+              </div>
+            </div>
+            <div class="dot">
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="./Assets/js/main.js" charset="utf-8"></script>
+</body>
+</html>

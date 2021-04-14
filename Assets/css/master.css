@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100vw;
+  height: calc(100vh - 30px);
+  background-image: url('../img/tendeRosse.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 125%;
+}
+
+div.container-border {
+  width: 95%;
+  height: 75%;
+  background-color: rgba(10, 10, 10, 0.9);
+  margin: 30px auto;
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+div.container-border div.navbar {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  padding: 7px;
+  justify-content: space-between;
+}
+
+div.container {
+  width: 95%;
+  height: 87%;
+  background-color: #AAA;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+div.container div.film-background,
+div.container div.serieTv-background {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+div.container div.film-background {
+  margin-left: 10px;
+}
+
+div.container div.serieTv-background {
+  margin-right: 10px;
+}
+
+
+div.container div.title {
+  width: 100%;
+  height: 40px;
+  color: #000;
+  background-color: #EEE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  border-radius: 15px;
+}
+
+div.container div.title h3 {
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+div.container div.film-container,
+div.container div.serieTv-container {
+  width: 100%;
+  height: calc(100% - 60px);
+  background-color: #000;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+div.container div.info-container {
+  width: 30%;
+  background-color: #EEE;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+div.container div.info-container::-webkit-scrollbar {
+    display: none;
+}
+
+
+div.info-container div.film-info img.cover-info {
+  width: 100%;
+  height: 300px;
+  padding: 10px 20px;
+}
+
+div.info-container div.film-info img.flag {
+  height: 20px;
+  padding-bottom: 2px;
+  padding-left: 5px;
+}
+
+
+div.info-container div.film-info ul {
+  list-style: none;
+  padding-left: 20px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+div.info-container div.film-info ul li {
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+div.info-container div.film-info ul li span {
+  font-weight: normal;
+  text-transform: none;
+}
+
+div.dot {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+div.dot i {
+  color: #FFF;
+  font-size: 14px;
+  padding-top: 19px;
+
+}
+
+div.container div.film-background div.cover-container,
+div.container div.serieTv-background div.cover-container {
+  width: 60%;
+  overflow-y: scroll;
+}
+
+div.container div.film-background div.cover-container::-webkit-scrollbar {
+    display: none;
+}
+
+div.container div.serieTv-background div.cover-container::-webkit-scrollbar {
+    display: none;
+}
+
+div.container div.cover-container div.cover {
+  width: 100%;
+  height: 125px;
+  border: 2px solid #FFF;
+  margin: 10px 0;
+}
+
+div.container div.cover-container div.cover img {
+  width: 100%;
+  height: 100%;
+}
